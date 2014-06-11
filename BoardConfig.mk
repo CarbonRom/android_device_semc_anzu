@@ -15,13 +15,15 @@
 -include device/semc/mogami-common/BoardConfigCommon.mk
 -include vendor/semc/anzu/BoardConfigVendor.mk
 
-TARGET_SPECIFIC_HEADER_PATH += device/semc/anzu/include
+TARGET_SPECIFIC_HEADER_PATH += device/semc/anzu/include \
+
+$(shell mkdir -p out/target/product/anzu/obj/KERNEL_OBJ/usr)
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/semc/anzu/bluedroid
 
 # Kernel
-TARGET_KERNEL_CONFIG := lx_anzu_defconfig
+TARGET_KERNEL_CONFIG := nAa_anzu_defconfig
 
 # Sensors
 SOMC_CFG_SENSORS_ACCEL_BMA150_INPUT := yes

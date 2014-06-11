@@ -16,7 +16,7 @@
 $(call inherit-product, device/semc/anzu/full_anzu.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
+$(call inherit-product, vendor/carbon/config/common_phone.mk)
 
 # Optional CM packages
 PRODUCT_PACKAGES += \
@@ -33,16 +33,11 @@ PRODUCT_PACKAGES += \
 # Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=LT18i \
-    PRODUCT_DEVICE=LT18i \
     BUILD_FINGERPRINT="SEMC/LT18i_1254-2184/LT18i:4.0.4/4.1.B.0.587/tL1_3w:user/release-keys" \
     PRIVATE_BUILD_DESC="LT18i-user 4.0.4 4.1.B.0.587 tL1_3w test-keys"
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := cm_anzu
-PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
+PRODUCT_NAME := carbon_anzu
+PRODUCT_DEVICE := anzu
 
-# Release name
-PRODUCT_RELEASE_NAME := anzu
-
-# Custom tag for unofficial builds
-TARGET_UNOFFICIAL_BUILD_ID := LegacyXperia
+PRODUCT_PROPERTY_OVERRIDES += ro.buildzipid=carbon.anzu.$(shell date +%m%d%y).$(shell date +%H%M%S)
